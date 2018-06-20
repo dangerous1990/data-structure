@@ -4,7 +4,7 @@ package org.data;
  * 单向循环链表
  * Created by limeng on 18-6-19.
  */
-public class CycleLinkedList implements List {
+public class CycleLinkedList<T> implements List<T> {
     private Node fakeHead = new Node(null);
     private Node tail;
     private int size = 0;
@@ -13,7 +13,7 @@ public class CycleLinkedList implements List {
     }
 
     @Override
-    public void add(Object o) {
+    public void add(T o) {
         if (null == tail) {
             tail = new Node(o);
             fakeHead.next = tail;
@@ -29,12 +29,12 @@ public class CycleLinkedList implements List {
     }
 
     @Override
-    public Object get(int i) {
+    public T get(int i) {
         int index = 0;
         Node current = fakeHead.next;
         while (index < size) {
             if (i == index) {
-                return current.value;
+                return (T)current.value;
             } else {
                 current = current.next;
                 index++;
@@ -45,7 +45,7 @@ public class CycleLinkedList implements List {
     }
 
     @Override
-    public boolean set(int i, Object o) {
+    public boolean set(int i, T o) {
         int index = 0;
         Node current = fakeHead.next;
         while (index < size) {
@@ -61,13 +61,13 @@ public class CycleLinkedList implements List {
     }
 
     @Override
-    public boolean remove(Object o) {
+    public boolean remove(T o) {
         Node current = fakeHead.next;
         int index = 0;
         while (index < size) {
             if (current.value.equals(o)) {
                 // 指向下个节点
-                current.value = current.next.value;
+                current.value = (T) current.next.value;
                 current.next = current.next.next;
                 size--;
                 return true;

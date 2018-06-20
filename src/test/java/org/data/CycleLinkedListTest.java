@@ -5,10 +5,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
+ * 单向链表循环测试
  * Created by limeng on 18-6-20.
  */
 public class CycleLinkedListTest {
-    CycleLinkedList linkedList = new CycleLinkedList();
+    CycleLinkedList<Integer> linkedList = new CycleLinkedList<>();
 
     @Before
     public void before() {
@@ -20,7 +21,7 @@ public class CycleLinkedListTest {
     @Test
     public void get() {
         for (int i = 0; i < 100; i++) {
-            Assert.assertEquals(i,linkedList.get(i));
+            Assert.assertEquals(i, linkedList.get(i).intValue());
         }
     }
 
@@ -31,7 +32,7 @@ public class CycleLinkedListTest {
         Assert.assertEquals(99, size);
         for (int i = 0; i < size; i++) {
             Object value = linkedList.get(i);
-            Assert.assertEquals(i+1,value);
+            Assert.assertEquals(i + 1, value);
         }
         Assert.assertFalse(linkedList.remove(101));
     }
