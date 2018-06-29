@@ -1,7 +1,7 @@
 package org.sort;
 
 /**
- * 归并排序，分治，时间复杂度稳定，不会因为数据变化，而产生变化
+ * 归并排序，分治，合并2个有序队列，时间复杂度稳定，不会因为数据变化，而产生变化
  * Created by limeng on 18-6-28.
  */
 public class MergeSort implements Sort {
